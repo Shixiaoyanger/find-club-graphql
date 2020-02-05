@@ -1,0 +1,17 @@
+{
+    "AppInfo": {
+        "Env": "dev",
+        "Addr": "8080"
+    },
+    "log": {
+        "LogBasePath": "/app/log/",
+        "LogFileName": "findclub"
+    },
+    "MongoDB": {
+        "Host": "mongo",
+        "User": "user",
+        "PW": "password",
+        "DBName": "findclub",
+        "AdminDBName": "admin"
+    }
+}

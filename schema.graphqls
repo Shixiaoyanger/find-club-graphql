@@ -1,0 +1,62 @@
+schema {
+    query: Query
+    mutation: Mutation
+}
+type Query {
+    club:Club
+    clubs:Clubs
+}
+
+type Mutation {
+    addClub(
+        name         : String!
+        introduction : String
+        detailInfo   : [String]
+        category     : category!
+        clubType     : [String]
+        tag          : [String]
+
+    ):Club
+}
+
+type Club {
+    id           : ID!
+    name         : String!
+    introduction : String
+    detailInfo   : String
+    category     : category!
+    clubType     : [String]
+    tag          : [String]
+    searchCount  : Int
+}
+
+type Clubs {
+    clubs(
+        category     : category
+        clubType     : [String]
+        tag          : [String]
+        keyWord      : [String]
+        hot          : Boolean
+    ) : [Club]
+}
+
+enum category {
+    #校级组织
+    school
+    #兴趣社团
+    student
+}
+#测试用例
+#  mutation {
+#        addClub(
+#            name:"测试社团"
+#            introduction:"简介"
+#            detailInfo:["详细信息","QQ群:12345678"]
+#            category:student
+#            clubType:["创新创业类"]
+#            tag:["志愿服务","外联","管理","宣传","新媒体"]##
+#        ){
+#            id
+#            name
+#        }
+#    }
